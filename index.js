@@ -17,7 +17,7 @@ restService.post("/buyplan", function(req, res) {
   var speech =
     req.body.result &&
     req.body.result.parameters &&
-    req.body.result.parameters.number
+    req.body.result.parameters.mobileText
       ? "Hi, premium plan will cost S$48 , business plan will cost S$64, prime plan will cost S$72 for 2 days of trip. You need to share credit card details to complete plan purchase process. Let me know if you are interested to proceed. You can choose from proceed or cancel."
       : "Seems like some problem. Speak again.";
   return res.json({
