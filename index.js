@@ -13,7 +13,7 @@ restService.use(
 
 restService.use(bodyParser.json());
 
-restService.post("/buyplan", function(req, res) {
+restService.post("/v2/buyplan", function(req, res) {
   var speech =
     req.body.result &&
     req.body.result.parameters &&
