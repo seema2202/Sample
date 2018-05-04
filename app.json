@@ -1,6 +1,6 @@
 {
-  "name": "Webhook-ins-sample",
-  "description": "Webhook ins sample",
+  "name": "Webhook-ins-sample1",
+  "description": "Webhook ins sample1",
   "repository": "https://github.com/seema2202/Sample/tree/dev.git",
   "keywords": ["api.ai", "dialogflow", "natural language"]
 }
