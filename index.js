@@ -13,7 +13,25 @@ restService.use(
 
 restService.use(bodyParser.json());
 
-restService.post("/v2/buyplan", function(req, res) {
+restService.post('/v2/buyplan',(req,res)=>{
+var response = "Hi, premium plan will cost S$48 , business plan will cost S$64, prime plan will cost S$72 for 2 days of trip. You need to share credit card details to complete plan purchase process. Let me know if you are interested to proceed. You can choose from proceed or cancel.";//Default response from the webhook to show it’s working
+var speech={
+     "fulfillmentText":response
+    ,"fulfillmentMessages":[
+        {
+            "text": {
+                "text": [
+                    "Hello I m Responding to intent"
+                ]
+            }
+        }
+    ]
+    ,"source":"webhook-echo-sample"
+}
+return res.json(speech);});
+
+/*
+restService.post("/buyplan", function(req, res) {
   var speech =
     req.body.result &&
     req.body.result.parameters &&
@@ -26,6 +44,7 @@ restService.post("/v2/buyplan", function(req, res) {
     source: "webhook-echo-sample"
   });
 });
+*/
 
 restService.post("/audio", function(req, res) {
   var speech = "";
