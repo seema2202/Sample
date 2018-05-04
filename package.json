@@ -1,7 +1,7 @@
 {
-  "name": "webhook-ins-sample",
+  "name": "webhook-ins-sample1",
   "version": "1.0.0",
-  "description": "Webhook ins sample",
+  "description": "Webhook ins sample1",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
