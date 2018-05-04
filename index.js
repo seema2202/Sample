@@ -14,9 +14,12 @@ restService.use(
 restService.use(bodyParser.json());
 
 restService.post("/buyplan", function(req, res) {
-  var speech =
-    req.body.result && req.body.result.parameters && req.body.result.parameters.coverageText ? req.body.result.parameters.coverageText : "Seems like some problem. Speak again.";
-  return res.json({
+  var result = 
+  var speech ="Seems like some problem. Speak again.";
+    if(req.body.result && req.body.result.parameters && req.body.result.parameters.choiceText){
+              speech = "Hi, premium plan will cost S$48 , business plan will cost S$64, prime plan will cost S$72 for 2 days of trip. You need to share credit card details to complete plan purchase process. Let me know if you are interested to proceed. You can choose from proceed or cancel.";
+      }
+    return res.json({
     speech: speech,
     displayText: speech,
     source: "webhook-ins-sample"
