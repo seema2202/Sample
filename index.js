@@ -21,7 +21,7 @@ restService.post('/v2/webhook',(req,res)=>{
   
   if(!req.body || !req.body.result|| !req.body.result.action){  
    
-   response = req.body.result.action;
+   response = JSON.stringify(req.body);
    console.log(response)
     //console.log(req.body.result.action)
     
