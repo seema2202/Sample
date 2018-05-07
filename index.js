@@ -16,7 +16,7 @@ restService.use(bodyParser.json());
 restService.post('/v2/webhook',(req,res)=>{
  var response = "currently service is unable to process your request"; 
  console.log(req.body)
- let action = request.body.result.action;
+ var action = req.body.result.action;
 /*if (!action){
 
     response = 'Action missing in Request';
@@ -28,7 +28,7 @@ restService.post('/v2/webhook',(req,res)=>{
   
     response = "Hi"+req.body.result.name+", premium plan will cost S$48 , business plan will cost S$64, prime plan will cost S$72 for 2 days of trip. You need to share credit card details to complete plan purchase process. Let me know if you are interested to proceed. You can choose from proceed or cancel.";//Default response from the webhook to show it’s working
       console.log(response)
-}else if(action === 'promotions'){
+}/*else if(action === 'promotions'){
   
    response = "Promo code is travel20, promo offer is 20% off and valid upto 20-04-2018. If you wish to know anything more, please let me know."; 
       console.log(response)
@@ -49,7 +49,7 @@ restService.post('/v2/webhook',(req,res)=>{
     
    response = "Your plan purchase for "+planType+" , payment details are saved in our system. Please make a note, your mobile number "+mobile+" will be used for future communications. If you wish to know anything more, please let me know.";
       console.log(response)
-  }else{
+  }*/else{
     
    response = "Alright. Thank you. If you wish to know anything more, please let me know.";
      console.log(response)
@@ -69,7 +69,7 @@ var speech={
         ,"source":"webhook-echo-sample"
     } 
 
-  return res.json(speech);});
+  return res.status(200).json(speech);});
 }
 
 
