@@ -68,7 +68,7 @@ var speech={
         ]
         ,"source":"webhook-echo-sample"
     } 
-  return res.status(200).json(speech);});
+  return res.json(speech);});
 }
 
 
