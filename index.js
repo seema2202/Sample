@@ -17,9 +17,16 @@ restService.post('/v2/webhook',(req,res)=>{
    
  var response = "currently service is unable to process your request"; 
  console.log(req.body)
+ console.log(req.body.result.action)
   
   if(!req.body || !req.body.result|| !req.body.result.action){  
-     var action = req.body.result.action;
+   
+   response = 'Action missing in Request';
+   console.log(response)
+    
+}else{
+  
+  var action = req.body.result.action;
   
  if(action === 'input.buyplan'){
   
@@ -51,18 +58,12 @@ restService.post('/v2/webhook',(req,res)=>{
     response = "Your plan purchase for "+planType+" , payment details are saved in our system. Please make a note, your mobile number "+mobile+" will be used for future communications. If you wish to know anything more, please let me know.";
     console.log(response)
   
-}else{
-    
-   response = "Alright. Thank you. If you wish to know anything more, please let me know.";
-   console.log(response)
-  
-  }   
-    
   }else{
-     response = 'Action missing in Request';
+    response = "Alright. Thank you. If you wish to know anything more, please let me know.";
    console.log(response)
-
-}
+  }
+    
+  }
 var speech={
          "fulfillmentText":response
         ,"fulfillmentMessages":[
