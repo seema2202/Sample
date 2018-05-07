@@ -13,15 +13,20 @@ restService.use(
 
 restService.use(bodyParser.json());
 
-restService.post('/v2/insurance',(req,res)=>{
+restService.post('/v2/webhook',(req,res)=>{
  var response = "currently service is unable to process your request"; 
  console.log(req.body)
-  /*
+
 if (!req.body || !req.body.result || !req.body.result.action){
   
  response = 'Action missing in Request';
 
-} else {
+} else{
+  
+    response = "Hi"+req.body.result.name+", premium plan will cost S$48 , business plan will cost S$64, prime plan will cost S$72 for 2 days of trip. You need to share credit card details to complete plan purchase process. Let me know if you are interested to proceed. You can choose from proceed or cancel.";//Default response from the webhook to show it’s working
+   
+} 
+  /*else {
   
 if(req.body.result.action == 'buyplan'){
   
