@@ -56,7 +56,7 @@ restService.post('/v2/webhook',(req,res)=>{
     var cvv = req.body.queryResult.parameters.cvv;
     var mobile = req.body.queryResult.parameters.mobile;
     
-    response = "Your plan purchase for "+planType+" , payment details are saved in our system. Please make a note, your mobile number "+mobile+" will be used for future communications. If you wish to know anything more, please let me know.";
+    response = "Your "+planType+" plan purchase payment details are saved in our system. Please make a note, your mobile number "+mobile+" will be used for future communications. If you wish to know anything more, please let me know.";
     console.log(response)
   
   }else{
