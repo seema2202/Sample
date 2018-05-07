@@ -14,8 +14,7 @@ restService.use(
 restService.use(bodyParser.json());
 
 restService.post('/v2/webhook',(req,res)=>{
-  try{
-    
+   
  var response = "currently service is unable to process your request"; 
  console.log(req.body)
   /*
@@ -69,9 +68,6 @@ var speech={
         ]
         ,"source":"webhook-echo-sample"
     } 
-}catch(err){
-  console.log(err);
-}
   return res.status(200).json(speech);});
 }
 
