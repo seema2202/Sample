@@ -15,8 +15,8 @@ restService.use(bodyParser.json());
 
 restService.post('/v2/insurance',(req,res)=>{
  var response = "currently service is unable to process your request"; 
-console.log(req.body)
-  
+ console.log(req.body)
+  /*
 if (!req.body || !req.body.result || !req.body.result.action){
   
  response = 'Action missing in Request';
@@ -53,7 +53,7 @@ if(req.body.result.action == 'buyplan'){
    response = "Alright. Thank you. If you wish to know anything more, please let me know.";
   
   }
-}
+}*/
 var speech={
          "fulfillmentText":response
         ,"fulfillmentMessages":[
