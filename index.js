@@ -21,7 +21,7 @@ restService.post('/v2/webhook',(req,res)=>{
   
   if(!req.body || !req.body.result|| !req.body.result.action){  
    
-   response = 'Action missing in Request';
+   response = req.body.result.action;
    console.log(response)
     //console.log(req.body.result.action)
     
