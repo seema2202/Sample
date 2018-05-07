@@ -18,36 +18,36 @@ restService.post('/v2/webhook',(req,res)=>{
  var response = "currently service is unable to process your request"; 
  console.log(req.body)
   
- /* if(!req.body || !req.body.result|| !req.body.result.action){  
+  if(!req.body || !req.body.result|| !req.body.result.action){  
     
     response = 'Action missing in Request';
    console.log(response)
     
-  }else{*/
+  }else{
     
  var action = req.body.result.action;
   
- if(action === 'buyplan'){
+ if(action === 'input.buyplan'){
   
       response = "Hi"+req.body.result.name+", premium plan will cost S$48 , business plan will cost S$64, prime plan will cost S$72 for 2 days of trip. You need to share credit card details to complete plan purchase process. Let me know if you are interested to proceed. You can choose from proceed or cancel.";//Default response from the webhook to show it’s working
       console.log(response)
    
-}else if(action === 'promotions'){
+}else if(action === 'input.promotions'){
   
       response = "Promo code is travel20, promo offer is 20% off and valid upto 20-04-2018. If you wish to know anything more, please let me know."; 
       console.log(response)
   
-}else if(action == 'plandetails'){
+}else if(action == 'input.plandetails'){
   
      response = "Insured is just myself , Business plan cost is S$20, CoverageType is single , PlanNumber is 7, TravelDestination is asia including australia and new zeeland , Premium plan cost is S$13, TripDuration is 1 day , Prime plan cost is S$22 , Insured is just myself , Business plan cost is S$255, CoverageType is annual , PlanNumber is 8, TravelDestination is asean , Premium plan cost is S$179, TripDuration is 1 year , Prime plan cost is S$281, Insured is group of 6 people , Business plan cost is S$153.9, CoverageType is single , PlanNumber is 10, TravelDestination is worldwide , Premium plan cost is S$114, TripDuration is 1 day , Prime plan cost is S$199.5,Insured is family of 2 adults and 3 children , Business plan cost is S$45.8, CoverageType is single , PlanNumber is 3, TravelDestination is asia including australia and new zeeland , Premium plan cost is S$29.77, TripDuration is 1 day , Prime plan cost is S$50.38 , Insured is couple , Business plan cost is S$32, CoverageType is single , PlanNumber is 2, TravelDestination is asean , Premium is 24, TripDuration is 1 day , Prime is 36, Insured is just myself , Business plan cost is S$382, CoverageType is annual , PlanNumber is 9, TravelDestination is worldwide , Premium plan cost is S$238, TripDuration is 1 year , Prime plan cost is S$428 ,Insured is couple , Business plan cost is S$760, CoverageType is annual , PlanNumber is 4, TravelDestination is worldwide excluding usa , Premium plan cost is S$472, TripDuration is 1 year , Prime plan cost is S$826,Insured is group of 6 people , Business plan cost is S$91.2, CoverageType is single , PlanNumber is 6, TravelDestination is asean , Premium plan cost is S$68.4, TripDuration is 1 day , Prime plan cost is S$102.6,Insured is just myself , Business plan cost is S$16, CoverageType is single , PlanNumber is 1, TravelDestination is asean , Premium plan cost is S$12, TripDuration is 1 day , Prime plan cost is S$18,Insured is couple , Business plan cost is S$54, CoverageType is single , PlanNumber is 5, TravelDestination is worldwide , Premium plan cost is S$40, TripDuration is 1 day , Prime plan cost is S$70.If you wish to know anything more, please let me know."; 
     console.log(response)
   
-}else if(action === 'planhighlights'){
+}else if(action === 'input.planhighlights'){
 
       response = "currently not available.If you wish to know anything more, please let me know."; 
        console.log(response) 
   
-}else if(action === 'proceed'){
+}else if(action === 'input.proceed'){
     
     var planType = req.body.result.parameters.planType; 
     var creditCard = req.body.result.parameters.creditCard;
@@ -81,85 +81,6 @@ var speech={
   return res.json(speech);});
 
 
-/*
-restService.post("/buyplan", function(req, res) {
-  var speech =
-    req.body.result &&
-    req.body.result.parameters &&
-    req.body.result.parameters.mobileText
-      ? "Hi, premium plan will cost S$48 , business plan will cost S$64, prime plan will cost S$72 for 2 days of trip. You need to share credit card details to complete plan purchase process. Let me know if you are interested to proceed. You can choose from proceed or cancel."
-      : "Seems like some problem. Speak again.";
-  return res.json({
-    speech: speech,
-    displayText: speech,
-    source: "webhook-echo-sample"
-  });
-});
-*/
-/*restService.post('/v2/webhook',(req,res)=>{
- var response = "currently service is unable to process your request"; 
- console.log(req.body)
-
-if (!req.body || !req.body.result || !req.body.result.action){
-  
- response = 'Action missing in Request';
-
-} else{
-  
-    response = "Hi"+req.body.result.name+", premium plan will cost S$48 , business plan will cost S$64, prime plan will cost S$72 for 2 days of trip. You need to share credit card details to complete plan purchase process. Let me know if you are interested to proceed. You can choose from proceed or cancel.";//Default response from the webhook to show it’s working
-   
-} 
-  /*else {
-  
-if(req.body.result.action == 'buyplan'){
-  
-    response = "Hi"+req.body.result.name+", premium plan will cost S$48 , business plan will cost S$64, prime plan will cost S$72 for 2 days of trip. You need to share credit card details to complete plan purchase process. Let me know if you are interested to proceed. You can choose from proceed or cancel.";//Default response from the webhook to show it’s working
-   
-}else if(req.body.result.action == 'promotions'){
-  
-   response = "Promo code is travel20, promo offer is 20% off and valid upto 20-04-2018. If you wish to know anything more, please let me know."; 
-   
-}else if(req.body.result.action == 'plandetails'){
-  
-   response = "Insured is just myself , Business plan cost is S$20, CoverageType is single , PlanNumber is 7, TravelDestination is asia including australia and new zeeland , Premium plan cost is S$13, TripDuration is 1 day , Prime plan cost is S$22 , Insured is just myself , Business plan cost is S$255, CoverageType is annual , PlanNumber is 8, TravelDestination is asean , Premium plan cost is S$179, TripDuration is 1 year , Prime plan cost is S$281, Insured is group of 6 people , Business plan cost is S$153.9, CoverageType is single , PlanNumber is 10, TravelDestination is worldwide , Premium plan cost is S$114, TripDuration is 1 day , Prime plan cost is S$199.5,Insured is family of 2 adults and 3 children , Business plan cost is S$45.8, CoverageType is single , PlanNumber is 3, TravelDestination is asia including australia and new zeeland , Premium plan cost is S$29.77, TripDuration is 1 day , Prime plan cost is S$50.38 , Insured is couple , Business plan cost is S$32, CoverageType is single , PlanNumber is 2, TravelDestination is asean , Premium is 24, TripDuration is 1 day , Prime is 36, Insured is just myself , Business plan cost is S$382, CoverageType is annual , PlanNumber is 9, TravelDestination is worldwide , Premium plan cost is S$238, TripDuration is 1 year , Prime plan cost is S$428 ,Insured is couple , Business plan cost is S$760, CoverageType is annual , PlanNumber is 4, TravelDestination is worldwide excluding usa , Premium plan cost is S$472, TripDuration is 1 year , Prime plan cost is S$826,Insured is group of 6 people , Business plan cost is S$91.2, CoverageType is single , PlanNumber is 6, TravelDestination is asean , Premium plan cost is S$68.4, TripDuration is 1 day , Prime plan cost is S$102.6,Insured is just myself , Business plan cost is S$16, CoverageType is single , PlanNumber is 1, TravelDestination is asean , Premium plan cost is S$12, TripDuration is 1 day , Prime plan cost is S$18,Insured is couple , Business plan cost is S$54, CoverageType is single , PlanNumber is 5, TravelDestination is worldwide , Premium plan cost is S$40, TripDuration is 1 day , Prime plan cost is S$70.If you wish to know anything more, please let me know."; 
- 
-}else if(req.body.result.action == 'planhighlights'){
-
-  response = "currently not available.If you wish to know anything more, please let me know."; 
-     
-}else if(req.body.result.action == 'proceed'){
-    
-    var planType = req.body.result.parameters.planType; 
-    var creditCard = req.body.result.parameters.creditCard;
-    var cvv = req.body.result.parameters.cvv;
-    var mobile = req.body.result.parameters.mobile;
-    
-   response = "Your plan purchase for "+planType+" , payment details are saved in our system. Please make a note, your mobile number "+mobile+" will be used for future communications. If you wish to know anything more, please let me know.";
-   
-  }else{
-    
-   response = "Alright. Thank you. If you wish to know anything more, please let me know.";
-  
-  }
-}
-var speech={
-         "fulfillmentText":response
-        ,"fulfillmentMessages":[
-            {
-                "text": {
-                    "text": [
-                        response
-                    ]
-                }
-            }
-        ]
-        ,"source":"webhook-echo-sample"
-    } 
-
-  return res.json(speech);});
-
-}
-*/
 restService.post("/audio", function(req, res) {
   var speech = "";
   switch (req.body.result.parameters.AudioSample.toLowerCase()) {
