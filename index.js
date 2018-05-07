@@ -18,12 +18,12 @@ restService.post('/v2/webhook',(req,res)=>{
  var response = "currently service is unable to process your request"; 
  console.log(req.body)
   
-  if(!req.body || !req.body.result|| !req.body.result.action){  
+ /* if(!req.body || !req.body.result|| !req.body.result.action){  
     
     response = 'Action missing in Request';
    console.log(response)
     
-  }else{
+  }else{*/
     
  var action = req.body.result.action;
   
@@ -63,7 +63,7 @@ restService.post('/v2/webhook',(req,res)=>{
    console.log(response)
   
   }
-}
+//}
 var speech={
          "fulfillmentText":response
         ,"fulfillmentMessages":[
