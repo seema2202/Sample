@@ -17,12 +17,13 @@ restService.post('/v2/webhook',(req,res)=>{
    
  var response = "currently service is unable to process your request"; 
  console.log(req.body)
- console.log(req.body.result.action)
+ //console.log(req.body.result.action)
   
   if(!req.body || !req.body.result|| !req.body.result.action){  
    
    response = 'Action missing in Request';
    console.log(response)
+    //console.log(req.body.result.action)
     
 }else{
   
