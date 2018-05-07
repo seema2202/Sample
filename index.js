@@ -19,19 +19,19 @@ restService.post('/v2/webhook',(req,res)=>{
  console.log(req.body)
  //console.log(req.body.result.action)
   
-  if(!req.body || !req.body.result|| !req.body.result.action){  
+  if(!req.body || !req.body.queryResult|| !req.body.queryResult.action){  
    
-   response = JSON.stringify(req.body);
+   response = "Action is missing in request";
    console.log(response)
     //console.log(req.body.result.action)
     
 }else{
   
-  var action = req.body.result.action;
+  var action = req.body.queryResult.action;
   
  if(action === 'input.buyplan'){
   
-      response = "Hi"+req.body.result.name+", premium plan will cost S$48 , business plan will cost S$64, prime plan will cost S$72 for 2 days of trip. You need to share credit card details to complete plan purchase process. Let me know if you are interested to proceed. You can choose from proceed or cancel.";//Default response from the webhook to show it’s working
+      response = "Hi"+req.body.queryResult.parameters.name+", premium plan will cost S$48 , business plan will cost S$64, prime plan will cost S$72 for 2 days of trip. You need to share credit card details to complete plan purchase process. Let me know if you are interested to proceed. You can choose from proceed or cancel.";//Default response from the webhook to show it’s working
       console.log(response)
    
 }else if(action === 'input.promotions'){
@@ -51,10 +51,10 @@ restService.post('/v2/webhook',(req,res)=>{
   
 }else if(action === 'input.proceed'){
     
-    var planType = req.body.result.parameters.planType; 
-    var creditCard = req.body.result.parameters.creditCard;
-    var cvv = req.body.result.parameters.cvv;
-    var mobile = req.body.result.parameters.mobile;
+    var planType = req.body.queryResult.parameters.planType; 
+    var creditCard = req.body.queryResult.parameters.creditCard;
+    var cvv = req.body.queryResult.parameters.cvv;
+    var mobile = req.body.queryResult.parameters.mobile;
     
     response = "Your plan purchase for "+planType+" , payment details are saved in our system. Please make a note, your mobile number "+mobile+" will be used for future communications. If you wish to know anything more, please let me know.";
     console.log(response)
