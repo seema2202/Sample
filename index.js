@@ -19,13 +19,7 @@ restService.post('/v2/webhook',(req,res)=>{
  console.log(req.body)
   
   if(!req.body || !req.body.result|| !req.body.result.action){  
-    
-    response = 'Action missing in Request';
-   console.log(response)
-    
-  }else{
-    
- var action = req.body.result.action;
+     var action = req.body.result.action;
   
  if(action === 'input.buyplan'){
   
@@ -62,7 +56,12 @@ restService.post('/v2/webhook',(req,res)=>{
    response = "Alright. Thank you. If you wish to know anything more, please let me know.";
    console.log(response)
   
-  }
+  }   
+    
+  }else{
+     response = 'Action missing in Request';
+   console.log(response)
+
 }
 var speech={
          "fulfillmentText":response
