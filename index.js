@@ -55,9 +55,9 @@ restService.post('/v2/webhook',(req,res)=>{
     var creditCard = req.body.queryResult.parameters.creditCard;
     var cvv = req.body.queryResult.parameters.cvv;
     var mobile = req.body.queryResult.parameters.mobile;
-    var telephone= "'telephone'";
+    //var telephone= "'telephone'";
   
-    response = 'Your '+planType+' plan purchase payment details are saved in our system. Please make a note, your mobile number <say-as interpret-as='+telephone+'>' + mobile + '</say-as>+' will be used for future communications. If you wish to know anything more, please let me know.';
+    response = "Your "+planType+" plan purchase payment details are saved in our system. Please make a note, your mobile number " + mobile + " will be used for future communications. If you wish to know anything more, please let me know.";
     console.log(response)  
   
   }else if(action === 'input.cancel'){
