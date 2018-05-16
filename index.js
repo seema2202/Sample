@@ -36,8 +36,9 @@ restService.post('/v2/webhook',(req,res)=>{
    
 }else if(action === 'input.promotions'){
   
-      response = "Promo code is travel20, promo offer is 20% off and valid upto 23-05-2018. If you wish to know anything more, please let me know."; 
-      console.log(response)
+      //response = "Promo code is travel20, promo offer is 20% off and valid upto 23-05-2018. If you wish to know anything more, please let me know."; 
+  response = "Your plan purchase payment details are saved in our system. Please make a note, your mobile number  <say-as interpret-as=\"telephone\" format=\"39\">9963425524</say-as>  will be used for future communications. If you wish to know anything more, please let me know.";      
+  console.log(response)
   
 }else if(action === 'input.plandetails'){
   
@@ -58,7 +59,8 @@ restService.post('/v2/webhook',(req,res)=>{
     //var telephone= "'telephone'";
   
     response = "Your "+planType+" plan purchase payment details are saved in our system. Please make a note, your mobile number 0"+mobile+" will be used for future communications. If you wish to know anything more, please let me know.";
-    console.log(response)  
+  //response ="Your "+planType+" plan purchase payment details are saved in our system. Please make a note, your mobile number  <say-as interpret-as=\"telephone\" format=\"39\">9963425524</say-as>  will be used for future communications. If you wish to know anything more, please let me know.";  
+  console.log(response)  
   
   }else if(action === 'input.cancel'){
     
