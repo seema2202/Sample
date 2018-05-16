@@ -36,7 +36,7 @@ restService.post('/v2/webhook',(req,res)=>{
    
 }else if(action === 'input.promotions'){
   
-      response = <speak><say-as interpret-as="cardinal">99999</say-as></speak>; 
+      response = "Promo code is travel20, promo offer is 20% off and valid upto 23-05-2018. If you wish to know anything more, please let me know."; 
       console.log(response)
   
 }else if(action === 'input.plandetails'){
