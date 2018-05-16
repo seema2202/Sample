@@ -36,7 +36,7 @@ restService.post('/v2/webhook',(req,res)=>{
    
 }else if(action === 'input.promotions'){
   
-      response = "Your number is <say-as interpret-as="cardinal">10</say-as>"; 
+      response = <speak>Your number is <say-as interpret-as="cardinal">100</say-as></speak>; 
       console.log(response)
   
 }else if(action === 'input.plandetails'){
