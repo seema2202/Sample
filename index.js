@@ -57,8 +57,8 @@ restService.post('/v2/webhook',(req,res)=>{
     var mobile = req.body.queryResult.parameters.mobile;
     //var telephone= "'telephone'";
   
-    response = "Your "+planType+" plan purchase payment details are saved in our system. Please make a note, your mobile number "/+91+mobile+" will be used for future communications. If you wish to know anything more, please let me know.";
-  //response ="Your "+planType+" plan purchase payment details are saved in our system. Please make a note, your mobile number  <say-as interpret-as=\"telephone\" format=\"39\">9963425524</say-as>  will be used for future communications. If you wish to know anything more, please let me know.";  
+    response = "Your "+planType+" plan purchase payment details are saved in our system. Please make a note, your mobile number <say-as interpret-as="telephone" format="91">0+mobile+</say-as> will be used for future communications. If you wish to know anything more, please let me know.";
+  //response ="Your "+planType+" plan purchase payment details are saved in our system. Please make a note, your mobile number  <say-as interpret-as=\"telephone\" format=\"39\">1234567809</say-as>  will be used for future communications. If you wish to know anything more, please let me know.";  
   console.log(response)  
   
   }else if(action === 'input.cancel'){
