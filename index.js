@@ -41,7 +41,7 @@ restService.post('/v2/webhook',(req,res)=>{
   
 }else if(action === 'input.plandetails'){
   
-     response = "Insured is just myself, Business plan cost is S$16, CoverageType is single, PlanNumber is 1, TravelDestination is Asean, Premium plan cost is S$12, TripDuration is 1 day, Prime plan cost is S$18.Insured is couple, Business plan cost is S$32, CoverageType is single, PlanNumber is 2, TravelDestination is Asean, Premium is 24, TripDuration is 1 day, Prime is 36.Insured is family of 2 adults and 3 children, Business plan cost is S$45.8, CoverageType is single , PlanNumber is 3, TravelDestination is Asia including Australia and New Zeeland, Premium plan cost is S$29.77, TripDuration is 1 day, Prime plan cost is S$50.38."; 
+     response = "Insured is just myself, Business plan cost is S$16, CoverageType is single, PlanNumber is 1, TravelDestination is Asean, Premium plan cost is S$12, TripDuration is 1 day, Prime plan cost is S$18.Insured is couple, Business plan cost is S$32, CoverageType is single, PlanNumber is 2, TravelDestination is Asean, Premium is 24, TripDuration is 1 day, Prime is 36.Insured is family of 2 adults and 3 children, Business plan cost is S$45.8, CoverageType is single , PlanNumber is 3, TravelDestination is Asia including Australia and New Zeeland, Premium plan cost is S$29.77, TripDuration is 1 day, Prime plan cost is S$50.38. If you wish to know anything more, please let me know."; 
     console.log(response)
   
 }else if(action === 'input.planhighlights'){
